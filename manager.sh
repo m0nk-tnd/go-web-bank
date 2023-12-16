@@ -35,6 +35,10 @@ function sqlc_gen() {
   read -n 1 -p "Press any key to exit" x
 }
 
+function test() {
+    go test -v -cover ./...
+}
+
 
 name="${1?needs one argument}"
 case $name in
@@ -61,6 +65,9 @@ case $name in
                 ;;
         "sqlc_gen")
                 sqlc_gen
+                ;;
+        "test")
+                test
                 ;;
         *)
                 echo "Not a valid argument"
